@@ -1,0 +1,31 @@
+/*********************************************
+ * OPL 12.9.0.0 Data
+ * Author: ngouanfo-G
+ * Creation Date: Feb 8, 2022 at 3:10:17 PM
+ *********************************************/
+
+ M = ;    		// nombre de sources de pollution
+ K = ;    		// nombre de zones de pollution
+ s = ;    		// nombre de nombre de scénarios météorologiques
+ z = ;    		// nombre de nombre de scénarios météorologiques
+ 
+ 
+ costSensor = 1;  // coût d'un noeud de capteurs
+ W_ip_s = 0.9; 	  //sensibilité du capteur
+ beta = 0.98; 
+ t_i_s = 1.0;
+ sigma = 1.0;
+ 
+  // connection au fichier excel de données
+ SheetConnection my_data("fich-data.xlsx");
+ 
+  // chargement des données 
+ P from SheetRead(my_data, "potentials_positions");
+ I from SheetRead(my_data, "pollution_sources");
+ 
+ S from SheetRead(my_data, "scenarios");
+ Z_i_s from SheetRead(my_data, "pollution_zones"); 
+ 
+ // sauvegarde des résultats dans un fichier excel
+ sensors_positions to SheetWrite(my_data, "resultat"); 
+ 
