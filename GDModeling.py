@@ -54,6 +54,7 @@ def pollutionZone(P, I, C0):
         for p in range(N):
             x = p.x
             y = p.y
+            z = 0
             X = gaussianDM(x, y, z, u, V, Q, hs, g, ay, az, by, bz, Ta, Ts)
             if X >= C0:
                 W[i][p] = 1
